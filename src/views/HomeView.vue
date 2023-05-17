@@ -1,13 +1,18 @@
 <template>
   <div style="height: 100%">
     <el-container style="height:100%; ">
-    <el-aside :width="sidewidth+'px'" style="background-color: rgb(238, 241, 246);overflow-x: hidden" >
+    <el-aside :width="sidewidth+'px'" style="background-color: rgb(238, 241, 246);overflow-x: hidden;box-shadow: 2px 0 6px rgb(0 21 41)" >
       <el-menu :default-openeds="['1', '3']" style="height: 100% ; overflow-x: hidden;"
                background-color="rgb(48,65,86)" text-color="#fff"
                 active-text-color="#ffd04b"
                :collapse-transition="false"
                :collapse="isCollapse"
       >
+        <div style="height: 60px;line-height: 60px;text-align: center;" >
+          <img src="../assets/logo.png" alt="" style="width: 20px ;position: relative;top: 5px;margin-right: 5px">
+
+          <b style="color: #fff" v-show="logoTextShow">后台管理系统</b>
+        </div>
         <el-submenu index="1">
           <template slot="title"><i class="el-icon-message"></i>
             <span>导航一</span>
@@ -64,7 +69,7 @@
 
     <el-container>
       <el-header style=" font-size: 12px; border-bottom: 1px solid #ccc;line-height:60px;display: flex " >
-        <div style="flex: 1;font-size: 18px">
+        <div style="flex: 1;font-size: 20px">
           <span :class="collapseBtnClass" style="cursor: pointer" @click="collapse"></span>
         </div>
         <el-dropdown style="width: 70px; cursor: pointer">
@@ -115,7 +120,8 @@ export default {
       tableData: Array(10).fill(item),
       collapseBtnClass:'el-icon-s-fold',
       isCollapse:false,
-      sidewidth:200
+      sidewidth:200,
+      logoTextShow:true
     }
   },
   methods:{
@@ -123,6 +129,12 @@ export default {
       this.isCollapse=!this.isCollapse;
       if(this.isCollapse){
         this.sidewidth=64
+        this.collapseBtnClass='el-icon-s-unfold'
+        this.logoTextShow=false
+      }else{
+        this.sidewidth=200
+        this.collapseBtnClass='el-icon-s-fold'
+        this.logoTextShow=true
       }
     }
   }
