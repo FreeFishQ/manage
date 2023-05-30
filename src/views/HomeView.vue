@@ -67,7 +67,7 @@
       </el-header>
 
       <el-main>
-        <div style="Rmargin-bottom:10px ">
+        <div style="margin-bottom:10px ">
           <el-breadcrumb separator="/">
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item>用户管理</el-breadcrumb-item>
